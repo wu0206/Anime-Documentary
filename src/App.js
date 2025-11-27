@@ -241,7 +241,10 @@ export default function App() {
               動漫追番
             </h1>
             <button 
-              onClick={() => { if(confirm('確定要重置資料？所有紀錄將會清除並還原至預設值。')) setData(generateInitialData()); }}
+              onClick={() => { 
+                // 這裡修改了 confirm 為 window.confirm
+                if(window.confirm('確定要重置資料？所有紀錄將會清除並還原至預設值。')) setData(generateInitialData()); 
+              }}
               className="text-xs bg-indigo-700 px-2 py-1 rounded hover:bg-indigo-800"
             >
               重置資料
