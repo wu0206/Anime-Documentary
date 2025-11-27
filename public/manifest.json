@@ -1,0 +1,48 @@
+{
+  "short_name": "追番君",
+  "name": "動漫追番紀錄 Anime Tracker",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#4f46e5",
+  "background_color": "#ffffff",
+  "orientation": "portrait"
+}
+```
+
+### 2. 修改 `public/index.html`
+你在截圖中也有這個檔案。請點開它，保留原本的結構，但在 `<head>` 標籤內**加入** iOS 專用的設定。
+
+**請將以下這段程式碼插入在 `<head>` 和 `</head>` 之間：**
+
+```html
+<!-- iOS PWA 專用設定 (請加入這幾行) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="追番君" />
+<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+```
+
+*(注意：不要刪除原本檔案裡類似 `<div id="root"></div>` 的內容，那是 App 的掛載點)*
+
+### 3. 修改 `src/App.js` (這是最關鍵的)
+你的截圖中顯示主程式是 `App.js`（而不是我之前範例寫的 `AnimeTracker.jsx`）。
+
+請點開 `src/App.js`，將**原本裡面的所有程式碼刪除**，然後貼上我上一則回覆給你的**完整版程式碼 (AnimeTracker.jsx 的內容)**。
+
+**貼上後請注意一點：**
+請檢查程式碼最上方的 Component 名稱。如果你的檔案叫 `App.js`，程式碼應該長這樣：
+```javascript
+// ... import 區域
+
+// 這裡必須是 export default function App()
+export default function App() { 
+  // ... 程式邏輯
+}
